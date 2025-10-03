@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "589258442579",
+    "project_id": "digitaldiary-1e985",
+    "storage_bucket": "digitaldiary-1e985.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:589258442579:android:1a736609652f18d71403a6",
+        "android_client_info": {
+          "package_name": "com.jakir.digitaldiary"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuSQvEL3qZhdfnYjk-4T4xVCuz6p_FaeU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
