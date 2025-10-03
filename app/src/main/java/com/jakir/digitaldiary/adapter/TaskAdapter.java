@@ -46,7 +46,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         Note currentNote = taskList.get(position);
         holder.bind(currentNote);
 
-        // --- EDIT: Tap the whole card ---
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, AddTaskActivity.class);
             intent.putExtra("note_id", currentNote.getId());
@@ -57,7 +56,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
             context.startActivity(intent);
         });
 
-        // --- DELETE: Tap the delete icon ---
         holder.deleteButton.setOnClickListener(v -> {
             new AlertDialog.Builder(context)
                     .setTitle("Delete Note")
@@ -78,7 +76,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
     class TaskViewHolder extends RecyclerView.ViewHolder {
         private final TextView title, description, date;
-        // --- CHANGE #1: Use Chip instead of View ---
         private final Chip priorityChip;
         private final ImageButton deleteButton;
 
@@ -88,7 +85,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
             description = itemView.findViewById(R.id.taskDescription);
             date = itemView.findViewById(R.id.taskDate);
             deleteButton = itemView.findViewById(R.id.button_delete);
-            // --- CHANGE #2: Use the new ID R.id.priority_chip ---
             priorityChip = itemView.findViewById(R.id.priority_chip);
         }
 
@@ -97,7 +93,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
             description.setText(note.getDetails());
             date.setText(note.getDate());
 
-            // --- CHANGE #3: Set the chip's text and background color ---
             if (note.getPriority() != null) {
                 priorityChip.setText(note.getPriority());
                 switch (note.getPriority().toLowerCase()) {
@@ -113,8 +108,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
                 }
             }
 
-            // Strikethrough logic is removed from title, as we don't have a complete checkbox anymore
-            // If you want to keep it, you can add an 'isCompleted' check here.
+
             title.setPaintFlags(title.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
         }
     }

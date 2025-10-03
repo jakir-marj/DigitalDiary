@@ -28,7 +28,6 @@ public class AddTaskActivity extends AppCompatActivity {
     private ExtendedFloatingActionButton saveFab;
     private FirebaseFirestore db;
 
-    // --- NEW: Variables to handle edit mode ---
     private boolean isEditMode = false;
     private String documentIdToEdit;
 
@@ -42,7 +41,6 @@ public class AddTaskActivity extends AppCompatActivity {
         setupToolbar();
         setupListeners();
 
-        // --- NEW: Check if we are in Edit Mode ---
         if (getIntent().hasExtra("note_id")) {
             isEditMode = true;
             documentIdToEdit = getIntent().getStringExtra("note_id");
@@ -59,25 +57,21 @@ public class AddTaskActivity extends AppCompatActivity {
         saveFab = findViewById(R.id.btnSaveTask);
     }
 
-    // --- NEW: Pre-fill the UI fields with existing note data ---
     private void populateFieldsForEdit() {
         // Change UI text for edit mode
         MaterialToolbar topAppBar = findViewById(R.id.addTaskTopAppBar);
         topAppBar.setTitle("Edit Note");
         saveFab.setText("Update Note");
 
-        // Get data from the intent
         String title = getIntent().getStringExtra("title");
         String details = getIntent().getStringExtra("details");
         String date = getIntent().getStringExtra("date");
         String priority = getIntent().getStringExtra("priority");
 
-        // Set the text
         titleField.setText(title);
         detailsField.setText(details);
         dateField.setText(date);
 
-        // Set the selected priority chip
         if (priority != null) {
             for (int i = 0; i < priorityChipGroup.getChildCount(); i++) {
                 Chip chip = (Chip) priorityChipGroup.getChildAt(i);
@@ -136,7 +130,7 @@ public class AddTaskActivity extends AppCompatActivity {
             return;
         }
 
-        // --- NEW: Logic to decide whether to update or add ---
+        // --- update or add ---
         if (isEditMode) {
             // We are editing, so perform an update
             db.collection("notes").document(documentIdToEdit)

@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         noTaskView = findViewById(R.id.noTask);
         RecyclerView recyclerView = findViewById(R.id.recyclerViewTasks);
 
-        // Setup RecyclerView, the adapter will be populated by the Firestore listener
+        //  Firestore listener
         adapter = new TaskAdapter(taskList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
