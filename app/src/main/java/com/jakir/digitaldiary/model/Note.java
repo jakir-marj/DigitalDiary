@@ -15,9 +15,9 @@ public class Note {
     private boolean completed;
 
     @ServerTimestamp
-    private Date createdAt; // This will be set by the server when a note is created
+    private Date createdAt;
 
-    // IMPORTANT: Firestore requires a public, no-argument constructor
+
     public Note() {}
 
     public Note(String title, String details, String date, String priority) {

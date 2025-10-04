@@ -1,5 +1,4 @@
 package com.jakir.digitaldiary;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +11,6 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.FirebaseFirestore;
